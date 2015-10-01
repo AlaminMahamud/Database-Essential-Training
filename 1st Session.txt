@@ -1,0 +1,56 @@
+[1st Session - Aug 12 2015]
+
+# What is a Database ?
+# Why You Need One ?
+# What Problems Will you Run into if you don't have one ?
+
+
+	* What You Need To Know *
+
+	Though I Know about databases, I Only Worked on 
+on those which have been designed by others. Now It's
+time to design mine.
+
+	* What are Databases *
+
+	First we need to know for which it has been 
+designed, for tackling which problems
+
+	- Size 
+	- ease of Updating
+	- accuracy
+	- security
+	- redundancy
+	- importance
+
+	* Security *
+
+		For security issues database is great, do we 
+	know who have been making changes in our data set.
+	how do we track them
+
+	Database is allowing our data set to grow 
+	while it is still Manageable.
+
+	* The Power Of Database *
+
+	It is not alike a spreadsheet. it's security of 
+data, making it more powerful under the hood. you 
+can't see what a powerful thing is going on
+
+	* Exploring Databases & DBMS *
+
+	- ORACLE - SQL Server - MySQL - PostgreSQL - MongoDB
+
+	they are not databases rather they are DATABASE MANAGEMENT SYSTEM
+
+	DBMS - software i.e: ACCESS, VENTO
+
+	* Types of Databases *
+
+	# Relational Database
+	# Hierarchical DBMS
+	# Object Oriented DBMS
+	# Network DBMS
+	# NoSQL DBMS
+

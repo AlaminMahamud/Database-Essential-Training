@@ -1,0 +1,112 @@
+[7th Session - Aug 15 - 2015]
+
+* Database Modeling & optimization *
+
+# Creating Indexes
+# Clustered indexes
+
+full table scan - Most Inefficient
+
+Non Clustered Index on Last Name
+
++----------------+---------------+
+| Last Name 	 + CustomerId    |
+----------------------------------
+|				 |				 |	
+|				 |				 |
+|				 |				 |
+----------------------------------
+
+
+very useful if you know certaing columns are frequently queried
+
+
+* Indexing *
+
+index is not just upfront work
+index is a trade off
+
+- faster reads
+- slower writes
+- but it can be tweaked without breaking apps
+
+
+* UnderStanding Write Conflicts *
+
+-> Conflicts and Isolation
+-> transaction and Asset Types
+
+ACID 
+----
+
+A - Atomic
+C - Consitent
+I - Isolated
+D - Durable
+
+
+ALICE 
+-----
+
+1. Get Balance Of Joint Account
+2. Get Balance Of Alice Account
+3. Update Balance Of Joint Account - 1000
+4. Update Balance Of Alice Account + 1000
+
+
+Bob:
+----
+1. Get Balance Of Joint Account
+2. Get Balance Of Bob Account
+3. Update Balance Of Joint Account - 1000
+4. Update Balance Of Bob Account + 1000
+
+there are conflicts if two people try to access same data
+
+to avoid Conflicts
+
+BEGIN TRANSACTION
+	---------------
+	---------------
+COMMIT
+
+
+* Dirty Read
+* Pessimistic Locking
+* Optimistic Locking
+
+* Understanding Stored Procedures *
+
+Stored Procedures
+
+CREATE PROCEDURE HiglyPaid()
+	SELECT * FROM Employee
+	WHERE Salary > 50000
+	ORDER BY LastName, FirstName
+END;
+
+CALL HighlyPaid();
+ 
+Stored Procedures can have parameters
+
+CREATE PROCEDURE EmployeesInDept (IN Dept VARCHAR(50))
+	SELECT * FROM Employee
+	WHERE Department = dept
+	ORDER BY LastName, FirstName
+END;
+
+CALL EmployeesInDept('Accounting');
+
+
+* SQL Injection *
+
+Customer Number : -----   Search
+
+the queries in web app has been written like this: 
+
+sqlString = SELECT * FROM Orders 
+			WHERE CustomerId = "'" + textBox.Value+ "'";
+execSQL(sqlString);
+
+
+sqlString = "SELECT * FROM Orders WHERE CustomerId = 'x'; SELECT * FROM Orders;--"+"'";

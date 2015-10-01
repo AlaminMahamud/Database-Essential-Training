@@ -1,0 +1,38 @@
+[2nd Session Aug - 12 - 2015]
+
+ * Database Fundamentals *
+
+ * features of RDBMS *
+
+ tables - rows - columns
+
+ * Exploring Unique Values & primary Keys *
+
+ Synthetic Keys - Surrogate Keys
+ Foreign Keys - Composite Keys
+
+ * Defining Table Relationships * 
+
+ - One - to - many
+ - Many -to - many
+ 	Junction or Linking Table
+ - one - to - one
+ - cardinality
+
+ * Transactions and the acid test *
+
+ - Atomic 
+ - Consistent
+ - Isolated
+ - Durable
+
+ - Consistent : going to a valid state from another valid state
+
+ * Introduction to SQL *
+
+ 	SQL is a declarative query language
+ 	not a procedural, imperative language
+
+ CRUD - CREATE - READ - UPDATE - DELETE
+
+ SELECT * FROM table WHERE booksPrice > 40

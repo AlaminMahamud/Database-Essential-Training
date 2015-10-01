@@ -1,0 +1,209 @@
+[6th Session - Aug 15 2015]
+
+	* Creating Queries in SQL *
+
+	its not general puropose language. if focuses purely on working with Databases
+
+	SELECT
+	FROM
+	WHERE
+	ORDER BY
+	GROUP BY
+	JOIN
+	INSERT INTO
+	UPDATE
+	DELETE
+	HAVING 
+	IN
+
+SELECT columns
+FROM tableName
+WHERE (particular condition is true)	
+
+
+SELECT FirstName, LastName
+FROM Employee
+WHERE Salary > 4000;
+
+
+To use Database explicitly in queries
+
+SELECT * 
+FROM HumanResources.Employee
+WHERE Salary > 50000;
+
+	* Creating the Where Clause *
+
+Similar like If Statements in programming Languages
+
+SELECT * FROM Employee
+WHERE Salary > 50000;
+
+unlike all the programming languages strings in SQL use Single Quotes
+
+we don't use double equals for equality rather single quotes.
+
+SELECT * FROM Employee
+WHERE salary >= 40000
+
+SELECT * FROM Employee 
+WHERE Salary > 50000
+	  AND Department = 'Sales'
+
+SELECT * FROM Employee
+WHERE Department = 'Marketing'
+	  OR Department = 'Sales'
+
+SELECT * FROM Employee
+WHERE Department IN 
+		('Marketing', 'Sales');
+
+SELECT * FROM Employee
+WHERE LastName LIKE 'Green%';
+
+SELECT * FROM Employee
+WHERE LastName LIKE 'sm_th';
+
+
+* To Check Whether the value is NULL *
+remember null is not anything. it can not be compared with others
+you cannot check whether value = null
+
+Rather :
+	SELECT * FROM  Employee
+	WHERE MiddleInitial IS NULL;
+
+	SELECT * FROM Employee
+	WHERE MiddleInitial IS NOT NULL;
+
+* SORTING YOUR RESULTS *
+
+	SELECT * FROM Employee
+	WHERE Salary > 50000
+	ORDER BY LastName, FirstName;
+
+first it is going to order according to Last Name but where last name are same it is going to sort the results by first name on that particular part of the result
+
+* Using Aggregate Function *
+
+aggregate function is 
+	-COUNT
+	-SUM
+	-AVG
+
+to get the count all the rows of result
+SELECT COUNT(*) FROM Employee
+
+result -> 554
+
+Moreover: 
+	we could use a WHERE clause if we want to apply condition
+
+to get the maximum valueof any col 
+
+	SELECT MAX(ListPrice)
+	FROM Product;
+
+	SELECT MIN(ListPrice)
+	FROM Product;
+
+	SELECT AVG(ListPrice)
+	FROM Product;
+
+	SELECT SUM(totalDue)
+	FROM Order
+	WHERE CustomerId = 854;
+
+the great things about aggregate functions they reduces complexity
+
+SELECT Count(*),Color
+FROM Product
+GROUP BY Color;
+
+* Joining Tables *
+
+# SELECT FROM Multiple Table
+
+Suppose we have two tables 1. Employee
+						   2. Department
+
+there are one to many relationship
+
+SELECT FirstName, LastName
+FROM Employee JOIN Department
+
+SELECT FirstName, LastName, HireDate, 
+	   Employee.DepartmentId , Name, Location
+On Employee.DepartmentId = Department.DepartmentId;
+
+Here we are doing INNER JOIN
+INNER JOIN is Default
+
+it means only bring those who have a match between those columns of different Tables
+
+Outer Joins
+
+LEFT OUTER JOIN
+	One of the table takes precedence with the other
+
+	we are interested in Matching results
+	but we also want when they dón't 
+
+* Inserting Updating and Deleting *
+
+Create - Insert
+Read   - SELECT
+Upate  - UPDATE 
+DELETE - DELETE
+
+Insert :
+
+	INSERT INTO table
+		(column1, column2)
+	VALUES (value1, value2)
+
+Here Number Of columns and number of value must match
+
+and also data type should match
+
+
+UPDATE table
+SET columnName = value
+
+DELETE FROM table
+WHERE condition
+
+BEFORE Updating or Deleting
+	use SELECT to be SURE
+
+Data Definition Language
+
+DML - Data Manipulation Language
+
+	data Manipulation Language
+	
+	1. SELECT
+	2. INSERT
+	3. UPDATE
+	4. DELETE
+
+	to change or alter table DDL is used
+
+CREATE
+ALTER
+DROP
+
+CREATE table
+	(Column Definition);
+
+CREATE myTable
+	(
+		EmployeeId INT NOT NULL AUTO INCREMENT UNIQUE,
+		FirstName VARCHAR(255) NOT NULL,
+		... 	... 	...		...
+	);	
+
+ALTER tableName
+	ADD ColumnName
+
+DROP TableName
