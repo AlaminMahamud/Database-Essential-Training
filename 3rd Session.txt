@@ -1,38 +1,140 @@
-[2nd Session Aug - 12 - 2015]
+[3rd Session Aug - 13 - 2015]
 
- * Database Fundamentals *
+ 	* Database Modeling - tables *
 
- * features of RDBMS *
+ 	* introduction to database Modeling *
 
- tables - rows - columns
+ 	- Agile Incremental Iterative approach
+ 	- entire point is to employ rule and structure in your data
+ 	- database and tattoos are similar in some manners
+ 	- like tattoos you cannot just change it the next week you created it
+ 	- it is extremely painful
+ 	- & you don't want to do it
+ 	- In your database schema you want to be patient, hypothetical and step by step
+ 	
+ 	* planning your database *
 
- * Exploring Unique Values & primary Keys *
+ 	What's the Point
+ 	----------------
 
- Synthetic Keys - Surrogate Keys
- Foreign Keys - Composite Keys
+ 	it's a database to store product and order info
 
- * Defining Table Relationships * 
+ 	-> find products quickly 
+ 	-> other people's thinking
+ 	-> purchase and order list
+ 	-> contribute own reviews and opinions
+ 	-> learn about other products they might like
+ 	-> based on people with similar reading habits
 
- - One - to - many
- - Many -to - many
- 	Junction or Linking Table
- - one - to - one
- - cardinality
+ 	What do you have already ?
+ 	--------------------------
 
- * Transactions and the acid test *
+ 	> Physical Items :
+ 		- forms - printouts - handouts - order sheets
 
- - Atomic 
- - Consistent
- - Isolated
- - Durable
+ 	> People and Expertise
+ 	> An Existing Databases and 
+ 		- SpreadSheets
+ 		- text File
 
- - Consistent : going to a valid state from another valid state
+ 	* Entities *
 
- * Introduction to SQL *
+ 	What Entities do you Have?
+ 	--------------------------
 
- 	SQL is a declarative query language
- 	not a procedural, imperative language
+ 	------------
+ 	| Customer |
+ 	------------
+ 		 | Places
+ 		_|_
+ 		\_/
+  	------------
+ 	|   Order  |
+ 	------------
+ 		 | Contains
+ 		_|_
+ 		\_/
+  	--------------
+ 	| order items|
+ 	--------------
+ 		 | Order items
+ 		_|_
+ 		\_/
+ 	--------------
+ 	|	Product  |
+ 	--------------	 
 
- CRUD - CREATE - READ - UPDATE - DELETE
 
- SELECT * FROM table WHERE booksPrice > 40
+ 	--------------
+ 	|	Comment  |
+ 	--------------
+ 		  |
+ 		  |
+ 		  |
+ 		 / \
+ 		/   \
+ 	   / on  \
+ 	   \	 /
+ 	    \   /
+ 	     \_/
+ 	      |
+ 	--------------
+ 	|	BlogPost |
+ 	--------------
+ 		  |
+ 		  |
+ 		  |
+ 		 / \
+ 		/   \
+ 	   / bel-\
+ 	  /  ongs \
+ 	  \  to   /
+ 	   \	 /
+ 	    \   /
+ 	     \_/
+ 	      |
+ 	--------------
+ 	|   Author   |
+ 	--------------	 
+	 
+
+ 	Singular Noun For entities
+
+ 	Paycheck -> for -> Employees -> is in -> Department
+
+ 	Identifying Columns and Selecting Data types
+
+ 	entities and attributes
+ 	-----------------------
+ 			   |----- name [attribute]
+ 	Customer ->|----- email
+ 			   |----- phone
+
+ 	Employee Table
+ 	--------------
+
+ 	First Name 			-> Character 
+ 	Last name 			-> Character
+ 	Date hired			-> Date
+ 	Salary Grade		-> integer
+ 	Address Line 1  	-> Character
+ 	Address Line 2 		-> Character
+ 	City 				-> Character
+ 	State 				-> Character
+ 	Zip 				-> Character	
+ 	Email 				-> Character
+ 	Photo 				-> Binary
+
+ 	BLOBS -> Binary Large Objects
+ 	CLOBS -> Character Large Objects
+
+ 	NULL => Complete absence Values
+
+ 	* Choosing Primary Keys *
+
+ 	auto increment - integer - PK
+
+ 	* Composite Keys *
+
+ 	if none of the keys are unique we can take two or more rows and
+ consider them as a single unique key. these concept is called composite keys

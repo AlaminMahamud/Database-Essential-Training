@@ -36,3 +36,4 @@
  CRUD - CREATE - READ - UPDATE - DELETE
 
  SELECT * FROM table WHERE booksPrice > 40
+

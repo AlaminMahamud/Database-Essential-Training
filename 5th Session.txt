@@ -1,82 +1,80 @@
-[4th session Aug - 14 - 2015]
-
-	* Database Modeling - Relational Database *
-
-	-> What is a relational Database 
-	-> ER Diagram
-
-	Cardinality 
-
-	- one -> one
-	- one ->>> many
-	- many <<<- one
-	- many <<<->>> many
-
-	* define one-many *
-
-	typcial types cardinality 
-	in order to create a foreign key bane if the column must not match, it only should match the datatype
+[5th Session - Aug - 14 - 2015]
 
 
-	-----------			  ---------			--------
-	| Customer| ------>>> | Order |---->>> | Prdouct|
-	----------- 		  ---------			---------
+	* Database Normalization *
+	
+	first Normal Form 1NF
+	Second Normal Form 2NF
+	Third Normal Form 3NF
 
-    +==================+
-    |Customer          |
-    +==================+
-    |Customer Id (PK)  |
-	|FirstName		   |
-	|LastName		   |
-	|email             |
-	|Phone    		   |
-	+==================+
-		 	 |
-		 	 |
-		 	 |
-		 	 |
-		 	 |
-		   \\ //
-		    \ /
-    +==================+
-    |Order             |
-    +==================+
-    |Order Id (PK)     |
-	|Date  			   |
-	|TotalDue		   |
-	|CustomerId (FK)   |
-	|DiscountCOde      |
-	+==================+
+	entire Point Of Normalization is to make your Database More Easier & reliable
 
+	it helps to reduce redundancy - data is easy to get for Database Administrator & Database Designer it is a core competency
 
-	* Exploring One-One Relationships *
+	* 1NF *
 
-	Employee -> Driver License
-	[Every Employee should have one Driving license]
+	it should have columns
+	it should have tables
+	it should contain just one value
+	there should be no repeating value or gropus
 
-	* Exploring Many - Many Relationships *
+	if we put more than one value in a field then we are violating the 1NF
 
-	* Understanding Relational Rules & Referential Integrity *
+	we cannot just add another additional Column like computer serial 1, computer serial 2
+	it violates 1NF
 
-	you are not allowed to put a value in a Foreign key that is not exist in its table
+	Note : it does not have any repeating values & gropus
 
-	* Referential Integrity *
+	* Appplying Second Normal Form *
 
-	* Cascading Delete *
+	if you want to go to 2NF then you must go from 1NF to 2NF 
 
-	What happens when you delete all the info ? it will delete cascadingly all the rows related with one another across multiple table
+	Second Normal Form:
+	------------------
+	Any non - key field should be dependent on the primary field key 
 
-	* Cascading Nulllify *
+	Second normal form is a problem where we are using composite primary keys
 
-	If i delete customer then it will nullify the foreign keys of that customer
+	Note:
+	any non-key field should be dependent on the primary key 
 
-	* No Action *
+	*	Applying third Normal Form:  *
 
-	DBMS Default
+	3NF: 
 
-	What it says ?
-	--------------
+	No non-key field is dependent on any other non-key field
 
-	in order to create a row that is related with another table you need to create that data first
+	Second Normal Form asks can i figure out any of the value in this row by just one part of composite key
 
-	likewise when you tend to delete the data it will refuse as it is referred with another data, So first delete referred data and then delete it.
+	Third Normal Form asks can i figure out any of the values in this row by any other values in the row. 
+
+	Note:
+	No non-key field should be dependent on another non-key field
+
+	Normalization is all about Redundancy
+
+	Database Denormalization:
+
+	you are consciously making choices which could be normalized
+
+	normalization reduces redundancy by splitting data into multiple tables causing performance hits
+
+	Demoralization can be done to improve performance
+
+	you must know our data before doing normalization & Denormalization  those are quality issues
+
+	whereas doing normaliation knowingly to improve your performance is not bad 
+
+	1NF  
+	---
+	no repeating values,groups
+
+	2NF 
+	---
+	no non key values based on just part of a composite key
+
+	3 NF
+	----
+	no non key values based on other non key values
+
+	taking your design through these three sets of criteria will vastly qualitize your data.
